@@ -6,7 +6,6 @@ import dev.kienntt.top_cv.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,4 +42,21 @@ public class JobController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @PostMapping("/searchDetails")
+    ResponseEntity<ResponseObject> search(@RequestBody Job body) {
+        List<Job> foundJob = jobService.searchJobsSQLDetail(body.getName(), body.getExperience(), body.getProfileCompanyId(), body.getCareerId());
+//        System.out.println(body.getProfileCompany());
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject(200, "Success", foundJob)
+        );
+    }
+
+    @PostMapping("/search")
+    ResponseEntity<ResponseObject> searchByName(@RequestBody Job job) {
+        List<Job> foundJob = jobService.searchJobsSQLByName(job.getName());
+        System.out.println(job.getName());
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject(200, "Success", foundJob)
+        );
+    }
 }

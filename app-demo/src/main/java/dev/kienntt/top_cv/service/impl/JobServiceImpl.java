@@ -20,6 +20,18 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
+    public List<Job> searchJobsSQLDetail(String jobName, Float experience, Long profileCompanyId, Long careerId) {
+        List<Job> jobs = jobRepository.searchJobsSQLDetail(jobName, experience, profileCompanyId, careerId);
+        return jobs;
+    }
+
+    @Override
+    public List<Job> searchJobsSQLByName(String jobName) {
+        List<Job> jobs = jobRepository.searchJobsSQLByName(jobName);
+        return jobs;
+    }
+
+    @Override
     public Optional<Job> findById(Long id) {
         return jobRepository.findById(id);
     }

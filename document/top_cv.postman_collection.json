@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8000d336-b77c-40f6-b3b2-fae7e3e32025",
+		"_postman_id": "32162d55-65bb-4fed-8811-a770a5c91c33",
 		"name": "top_cv",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16159202"
@@ -24,15 +24,11 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/user/login",
-							"protocol": "http",
+							"raw": "{{domain}}/user/login",
 							"host": [
-								"localhost"
+								"{{domain}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"user",
 								"login"
 							]
@@ -55,15 +51,11 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/user/register",
-							"protocol": "http",
+							"raw": "{{domain}}/user/register",
 							"host": [
-								"localhost"
+								"{{domain}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"user",
 								"register"
 							]
@@ -86,15 +78,11 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/user/update",
-							"protocol": "http",
+							"raw": "{{domain}}/user/update",
 							"host": [
-								"localhost"
+								"{{domain}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"user",
 								"update"
 							]
@@ -113,15 +101,11 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/job/createJob",
-							"protocol": "http",
+							"raw": "{{domain}}/job/createJob",
 							"host": [
-								"localhost"
+								"{{domain}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"job",
 								"createJob"
 							]
@@ -130,20 +114,16 @@
 					"response": []
 				},
 				{
-					"name": "chọn 1 công việc",
+					"name": "xem chi tiết công việc",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/job/showJob/2",
-							"protocol": "http",
+							"raw": "{{domain}}/job/showJob/2",
 							"host": [
-								"localhost"
+								"{{domain}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"job",
 								"showJob",
 								"2"
@@ -158,17 +138,167 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/job/getAllJob",
-							"protocol": "http",
+							"raw": "{{domain}}/job/getAllJob",
 							"host": [
-								"localhost"
+								"{{domain}}"
 							],
-							"port": "8080",
 							"path": [
-								"api",
-								"v1",
 								"job",
 								"getAllJob"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tìm kiếm công việc theo tên",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/job/search",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"job",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tìm kiếm công việc theo nhiều trường",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"a\",\r\n    \"experience\": 2,\r\n    \"profileCompanyId\": 2,\r\n    \"careerId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/job/searchDetails",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"job",
+								"searchDetails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "career",
+			"item": [
+				{
+					"name": "tạo ngành nghề",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nhân sự\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/career/createCareer",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"career",
+								"createCareer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lấy danh sách ngành nghề",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/career/getAllCareer",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"career",
+								"getAllCareer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "tạo công ty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name\",\r\n    \"nameAsc\": \"nameAsc\",\r\n    \"introduction\": \"introduction\",\r\n    \"staffNumber\": 100,\r\n    \"contactInfo\": \"contactInfo\",\r\n    \"currentAddress\": \"currentAddress\",\r\n    \"website\": \"website\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/company/createCompany",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"company",
+								"createCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lấy danh sách công ty",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/company/getAllCompany",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"company",
+								"getAllCompany"
 							]
 						}
 					},

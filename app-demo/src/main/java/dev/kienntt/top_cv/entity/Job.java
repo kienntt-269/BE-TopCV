@@ -1,7 +1,10 @@
 package dev.kienntt.top_cv.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,7 +15,11 @@ import java.util.Set;
 @Table(name = "job_list")
 @Getter
 @Setter
+//@SecondaryTable(name = "career_list", pkJoinColumns = @PrimaryKeyJoinColumn(name = "id"))
 public class Job extends BaseEntity{
+
+    @Column(name = "name", length = 255)
+    private String name;
 
     @Column(name = "basic_salary", length = 20)
     private String basicSalary;
@@ -41,17 +48,24 @@ public class Job extends BaseEntity{
     @Column(name = "interests", length = 1000)
     private String interests;
 
-    @Column(name = "company_id", length = 20)
-    private String company_id;
-
     @Column(name = "submit_deadline", length = 6)
     private Date submitDeadline;
 
-//    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-//    @JoinTable(name = "company", joinColumns = {@JoinColumn(name = "company_id")})
-//    private Set<ProfileCompany> companys = new HashSet<>();
+    @Column(name = "company_id", length = 6)
+    private Long profileCompanyId;
 
-//    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-//    @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "role_id")})
-//    private Set<Career> careers = new HashSet<>();
+    @Column(name = "career_list_id", length = 6)
+    private Long careerId;
+
+    @ManyToOne
+    @JoinColumn(name = "company_id", insertable = false, updatable = false) // thông qua khóa ngoại company_id
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private ProfileCompany profileCompany;
+
+    @ManyToOne
+    @JoinColumn(name = "career_list_id", nullable = true, insertable = false, updatable = false) // thông qua khóa ngoại career_list_id
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Career career;
 }
