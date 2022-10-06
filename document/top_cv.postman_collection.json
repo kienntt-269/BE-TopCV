@@ -43,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"kien3\",\r\n    \"password\": \"123456aA@\",\r\n    \"email\": \"kien3@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"username\": \"kien1\",\r\n    \"password\": \"123456aA@\",\r\n    \"email\": \"kien1@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -70,7 +70,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userId\": 2,\r\n    \"username\": \"kien7\",\r\n    \"password\": \"$2a$10$jAvOAM2mIBiO0xy6z9gs4eAn6zix3pRiWlSbxULaMHgA5q11wCRLK\",\r\n    \"height\": null,\r\n    \"weight\": null,\r\n    \"experience\": null,\r\n    \"highSchool\": null,\r\n    \"registerBook\": null,\r\n    \"cccd\": null,\r\n    \"hobbies\": null,\r\n    \"nativeLand\": null,\r\n    \"genitive\": null,\r\n    \"cultureLevel\": null,\r\n    \"wish\": null,\r\n    \"career\": null,\r\n    \"specialCondition\": null,\r\n    \"wage\": null,\r\n    \"area\": null,\r\n    \"province\": null,\r\n    \"currentJob\": null,\r\n    \"authorities\": [],\r\n    \"enabled\": false,\r\n    \"credentialsNonExpired\": false,\r\n    \"accountNonExpired\": false,\r\n    \"accountNonLocked\": false\r\n}",
+							"raw": "{\r\n    \"height\": \"999\",\r\n    \"weight\": \"999\",\r\n    \"workExperience\": \"no\",\r\n    \"education\": \"50\",\r\n    \"registerBook\": \"50\",\r\n    \"cccd\": \"50\",\r\n    \"hobbies\": \"50\",\r\n    \"nativeLand\": \"50\",\r\n    \"genitive\": \"50\",\r\n    \"cultureLevel\": \"50\",\r\n    \"wish\": \"50\",\r\n    \"career\": \"50\",\r\n    \"wage\": \"50\",\r\n    \"area\": \"50\",\r\n    \"province\": \"50\",\r\n    \"currentJobId\": 12,\r\n    \"userId\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -78,13 +78,126 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/user/update",
+							"raw": "{{domain}}/user/updateProfileUserNotAvatar",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"user",
-								"update"
+								"updateProfileUserNotAvatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cập nhật thông tin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "height",
+									"value": "test height",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "test weight",
+									"type": "text"
+								},
+								{
+									"key": "workExperience\n",
+									"value": "workExperience",
+									"type": "text"
+								},
+								{
+									"key": "education",
+									"value": "education",
+									"type": "text"
+								},
+								{
+									"key": "registerBook",
+									"value": "registerBook",
+									"type": "text"
+								},
+								{
+									"key": "cccd",
+									"value": "cccd",
+									"type": "text"
+								},
+								{
+									"key": "hobbies",
+									"value": "hobbies",
+									"type": "text"
+								},
+								{
+									"key": "nativeLand",
+									"value": "nativeLand",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/nguye/OneDrive/Desktop/test.jpg"
+								},
+								{
+									"key": "genitive",
+									"value": "genitive",
+									"type": "text"
+								},
+								{
+									"key": "cultureLevel",
+									"value": "cultureLevel",
+									"type": "text"
+								},
+								{
+									"key": "wish",
+									"value": "wish",
+									"type": "text"
+								},
+								{
+									"key": "career",
+									"value": "career",
+									"type": "text"
+								},
+								{
+									"key": "wage",
+									"value": "wage",
+									"type": "text"
+								},
+								{
+									"key": "area",
+									"value": "area",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "province",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "currentJobId",
+									"value": "13",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/user/updateProfileUser",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"updateProfileUser"
 							]
 						}
 					},
@@ -100,6 +213,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{domain}}/job/createJob",
 							"host": [
@@ -119,14 +241,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/job/showJob/2",
+							"raw": "{{domain}}/job/showJob/1",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"job",
 								"showJob",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -165,13 +287,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/job/search",
+							"raw": "{{domain}}/job/searchDetails",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"job",
-								"search"
+								"searchDetails"
 							]
 						}
 					},
@@ -184,7 +306,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"a\",\r\n    \"experience\": 2,\r\n    \"profileCompanyId\": 2,\r\n    \"careerId\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"experience\": 1,\r\n    \"profileCompanyId\": 1,\r\n    \"careerId\": 1,\r\n    \"basicSalary\": \"0\",\r\n    \"sex\": \"no\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -199,6 +321,51 @@
 							"path": [
 								"job",
 								"searchDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lấy công việc đã ứng tuyển hoặc đã lưu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/candidates/getAllCandidates",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"candidates",
+								"getAllCandidates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "thêm công việc ứng tuyển",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobId\": 12,\r\n    \"profileUserId\": 7,\r\n    \"candidatesType\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/candidates/createCandidates",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"candidates",
+								"createCandidates"
 							]
 						}
 					},
@@ -299,6 +466,73 @@
 							"path": [
 								"company",
 								"getAllCompany"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UUID Service",
+			"item": [
+				{
+					"name": "Tạo tài khoản",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\": \"999@gmail.com\",\r\n    \"hash\": \"123456aA@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cvnl.me/uuid/v1/user/create",
+							"protocol": "https",
+							"host": [
+								"cvnl",
+								"me"
+							],
+							"path": [
+								"uuid",
+								"v1",
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"account\": \"999@gmail.com\",\r\n    \"hash\": \"123456aA@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cvnl.me/uuid/v1/user/hash",
+							"protocol": "https",
+							"host": [
+								"cvnl",
+								"me"
+							],
+							"path": [
+								"uuid",
+								"v1",
+								"user",
+								"hash"
 							]
 						}
 					},

@@ -12,6 +12,8 @@ import java.util.Collection;
 @Entity
 @Table(name = "profile_company")
 public class ProfileCompany extends BaseEntity {
+    @Column(name = "avatar", length = 255)
+    private String avatar;
 
     @Column(name = "name", length = 255)
     private String name;

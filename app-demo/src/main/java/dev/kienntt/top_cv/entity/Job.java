@@ -17,7 +17,6 @@ import java.util.Set;
 @Setter
 //@SecondaryTable(name = "career_list", pkJoinColumns = @PrimaryKeyJoinColumn(name = "id"))
 public class Job extends BaseEntity{
-
     @Column(name = "name", length = 255)
     private String name;
 
@@ -56,6 +55,9 @@ public class Job extends BaseEntity{
 
     @Column(name = "career_list_id", length = 6)
     private Long careerId;
+
+    @Column(name = "job_type", length = 6)
+    private Long jobType;
 
     @ManyToOne
     @JoinColumn(name = "company_id", insertable = false, updatable = false) // thông qua khóa ngoại company_id

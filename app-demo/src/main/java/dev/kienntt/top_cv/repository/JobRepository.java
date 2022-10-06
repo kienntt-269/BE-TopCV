@@ -13,8 +13,10 @@ public interface JobRepository extends JpaRepository<Job, Long> {
             "j.name LIKE CONCAT('%',:jobName, '%')" +
                 "and (:experience is null or j.experience = :experience)" +
                     " and (:profileCompanyId is null or j.profileCompany.id = :profileCompanyId)" +
-                        " and (:careerId is null or j.career.id = :careerId)")
-    List<Job> searchJobsSQLDetail(String jobName, Float experience, Long profileCompanyId, Long careerId);
+                        " and (:basicSalary is null or j.basicSalary = :basicSalary)" +
+                            " and (:sex is null or j.sex = :sex)" +
+                                " and (:careerId is null or j.career.id = :careerId)")
+    List<Job> searchJobsSQLDetail(String jobName, Float experience, Long profileCompanyId, Long careerId, String basicSalary, String sex);
 //    List<Job> searchJobsSQL(String query);
 
     @Query("SELECT j FROM Job j WHERE " +

@@ -44,7 +44,7 @@ public class JobController {
 
     @PostMapping("/searchDetails")
     ResponseEntity<ResponseObject> search(@RequestBody Job body) {
-        List<Job> foundJob = jobService.searchJobsSQLDetail(body.getName(), body.getExperience(), body.getProfileCompanyId(), body.getCareerId());
+        List<Job> foundJob = jobService.searchJobsSQLDetail(body.getName(), body.getExperience(), body.getProfileCompanyId(), body.getCareerId(), body.getBasicSalary(), body.getSex());
 //        System.out.println(body.getProfileCompany());
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseObject(200, "Success", foundJob)

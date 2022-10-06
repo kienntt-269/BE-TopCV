@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e78c4925-5004-4ebb-a3e5-9299a81614b7" name="Changes" comment="" />
+    <list default="true" id="e78c4925-5004-4ebb-a3e5-9299a81614b7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../document/career_list.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../document/database.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../document/database.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../document/diagram_top_cv.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/../document/diagram_top_cv.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../document/diagram_top_cv.mwb.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../document/job_list.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../document/profile_company.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../document/topcv.png" beforeDir="false" afterPath="$PROJECT_DIR$/../document/topcv.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../document/topcv.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../document/topcv_test.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../document/user.sql" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +73,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Project/Java/BE-TopCV/app-demo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/Java/Test/BE-TopCV/app-demo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -71,6 +82,11 @@
     &quot;spring.configuration.checksum&quot;: &quot;7fc1543bc9d22cb0db9fac9dd75b8d49&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="dev.kienntt.top_cv.service.impl" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -140,6 +156,11 @@
       <workItem from="1663594747669" duration="10419000" />
       <workItem from="1663681511616" duration="2791000" />
       <workItem from="1663686648806" duration="611000" />
+      <workItem from="1664711587711" duration="6361000" />
+      <workItem from="1664803652696" duration="1957000" />
+      <workItem from="1664807633519" duration="17000" />
+      <workItem from="1664808850969" duration="5777000" />
+      <workItem from="1664892894110" duration="6432000" />
     </task>
     <servers />
   </component>
