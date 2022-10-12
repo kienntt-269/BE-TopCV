@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"kien3\",\r\n    \"password\": \"123456aA@\"\r\n}",
+							"raw": "{\r\n    \"username\": \"kien11\",\r\n    \"password\": \"123456aA@\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"kien1\",\r\n    \"password\": \"123456aA@\",\r\n    \"email\": \"kien1@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"username\": \"kien1\",\r\n    \"password\": \"123456aA@\",\r\n    \"email\": \"kien1@gmail.com\",\r\n    \"uuid\": \"123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -64,34 +64,26 @@
 					"response": []
 				},
 				{
-					"name": "Cập nhật thông tin",
+					"name": "Lấy thông tin cv",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"height\": \"999\",\r\n    \"weight\": \"999\",\r\n    \"workExperience\": \"no\",\r\n    \"education\": \"50\",\r\n    \"registerBook\": \"50\",\r\n    \"cccd\": \"50\",\r\n    \"hobbies\": \"50\",\r\n    \"nativeLand\": \"50\",\r\n    \"genitive\": \"50\",\r\n    \"cultureLevel\": \"50\",\r\n    \"wish\": \"50\",\r\n    \"career\": \"50\",\r\n    \"wage\": \"50\",\r\n    \"area\": \"50\",\r\n    \"province\": \"50\",\r\n    \"currentJobId\": 12,\r\n    \"userId\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{domain}}/user/updateProfileUserNotAvatar",
+							"raw": "{{domain}}/user/getProfileUser/1",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"user",
-								"updateProfileUserNotAvatar"
+								"getProfileUser",
+								"1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Cập nhật thông tin",
+					"name": "Cập nhật thông tin cv",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -241,14 +233,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/job/showJob/1",
+							"raw": "{{domain}}/job/showJob/12",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"job",
 								"showJob",
-								"1"
+								"12"
 							]
 						}
 					},
@@ -351,7 +343,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"jobId\": 12,\r\n    \"profileUserId\": 7,\r\n    \"candidatesType\": 0\r\n}",
+							"raw": "{\r\n    \"jobId\": 12,\r\n    \"profileUserId\": 1,\r\n    \"candidatesType\": 0\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
