@@ -21,7 +21,7 @@ public class Candidates {
     @Column(name = "job_id", nullable = false)
     private Long jobId;
 
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "profile_user_id", nullable = false)
     private Long profileUserId;
 
     @Column(name = "candidates_type", nullable = false)

@@ -13,23 +13,6 @@ public class UserPrincipal implements UserDetails {
     private String username;
     private String password;
     private String token;
-    private String height;
-    private String weight;
-    private String experience;
-    private String highSchool;
-    private String registerBook;
-    private String cccd;
-    private String hobbies;
-    private String nativeLand;
-    private String genitive;
-    private String cultureLevel;
-    private String wish;
-    private String career;
-    private String specialCondition;
-    private String wage;
-    private String area;
-    private String province;
-    private String currentJobId;
     private Collection authorities;
 
     @Override

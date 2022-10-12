@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e78c4925-5004-4ebb-a3e5-9299a81614b7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../document/career_list.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../document/database.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../document/database.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../document/diagram_top_cv.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/../document/diagram_top_cv.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../document/diagram_top_cv.mwb.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../document/job_list.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../document/profile_company.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../document/topcv.png" beforeDir="false" afterPath="$PROJECT_DIR$/../document/topcv.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../document/topcv.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../document/topcv_test.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../document/user.sql" beforeDir="false" />
-    </list>
+    <list default="true" id="e78c4925-5004-4ebb-a3e5-9299a81614b7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,27 +83,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TopCVApplication">
-    <configuration name="SpringsecurityJwtMysqlApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="top_cv" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="dev.hunghh.springsecurityjwtmysql.SpringsecurityJwtMysqlApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="top_cv" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="dev.kienntt.top_cv.TopApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dev.kienntt.top_cv.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="TopCVApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
       <option name="ALTERNATIVE_JRE_PATH" value="12" />
@@ -161,6 +130,14 @@
       <workItem from="1664807633519" duration="17000" />
       <workItem from="1664808850969" duration="5777000" />
       <workItem from="1664892894110" duration="6432000" />
+      <workItem from="1665327456198" duration="509000" />
+      <workItem from="1665327981206" duration="55000" />
+      <workItem from="1665328058009" duration="46000" />
+      <workItem from="1665328277434" duration="1324000" />
+      <workItem from="1665413755899" duration="240000" />
+      <workItem from="1665416962959" duration="34000" />
+      <workItem from="1665418626053" duration="6000" />
+      <workItem from="1665584071550" duration="3886000" />
     </task>
     <servers />
   </component>

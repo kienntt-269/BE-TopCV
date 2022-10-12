@@ -1,9 +1,6 @@
 package dev.kienntt.top_cv.api;
 
-import dev.kienntt.top_cv.entity.ProfileUser;
-import dev.kienntt.top_cv.entity.ResponseObject;
-import dev.kienntt.top_cv.entity.Token;
-import dev.kienntt.top_cv.entity.User;
+import dev.kienntt.top_cv.entity.*;
 import dev.kienntt.top_cv.security.JwtUtil;
 import dev.kienntt.top_cv.security.UserPrincipal;
 import dev.kienntt.top_cv.service.ProfileUserService;
@@ -22,6 +19,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1/user")
@@ -137,6 +135,13 @@ public class AuthController {
         profileUser.setUserId(userId);
         profileUser.setAvatar(imagePath.resolve(image.getOriginalFilename()).toString());
         return profileUserService.updateProfileUser(profileUser);
+    }
+
+    @GetMapping("/getProfileUser/{id}")
+    public ResponseEntity<ProfileUser> getProfileUser(@PathVariable Long id) {
+        Optional<ProfileUser> profileUserOptional = profileUserService.findById(id);
+        return profileUserOptional.map(profileUser -> new ResponseEntity<>(profileUser, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("/hello")
