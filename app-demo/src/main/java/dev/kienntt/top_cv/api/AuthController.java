@@ -168,7 +168,6 @@ public class AuthController {
         return profileUserOptional.map(profileUser -> new ResponseEntity<>(profileUser, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
 //    @GetMapping("/hello")
 //    @PreAuthorize("hasAnyAuthority('USER_READ')")
 //    public ResponseEntity hello() {
