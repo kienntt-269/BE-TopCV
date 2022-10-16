@@ -6,6 +6,8 @@ import dev.kienntt.top_cv.service.ProfileUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ProfileUserServiceImpl implements ProfileUserService {
 
@@ -17,8 +19,19 @@ public class ProfileUserServiceImpl implements ProfileUserService {
 //        return profileUser;
 //    }
 
+
+    @Override
+    public ProfileUser save(ProfileUser profileUser) {
+        return profileUserRepository.save(profileUser);
+    }
+
     @Override
     public ProfileUser updateProfileUser(ProfileUser profileUser) {
         return profileUserRepository.save(profileUser);
+    }
+
+    @Override
+    public Optional<ProfileUser> findById(Long id) {
+        return profileUserRepository.findById(id);
     }
 }

@@ -1,9 +1,6 @@
 package dev.kienntt.top_cv.api;
 
-import dev.kienntt.top_cv.entity.ProfileUser;
-import dev.kienntt.top_cv.entity.ResponseObject;
-import dev.kienntt.top_cv.entity.Token;
-import dev.kienntt.top_cv.entity.User;
+import dev.kienntt.top_cv.entity.*;
 import dev.kienntt.top_cv.security.JwtUtil;
 import dev.kienntt.top_cv.security.UserPrincipal;
 import dev.kienntt.top_cv.service.ProfileUserService;
@@ -15,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -22,6 +20,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1/user")
@@ -41,19 +40,53 @@ public class AuthController {
     private ProfileUserService profileUserService;
 
     @PostMapping("/register")
-    public User register(@RequestBody User user) {
+    public ResponseEntity<ResponseObject> register(@RequestBody User user) {
+        final String uri = "https://cvnl.me/uuid/v1/user/create";
+
+        Account account = new Account();
+        account.setAccount(user.getUsername());
+        account.setHash(user.getPassword());
+
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.postForObject(uri, account, String.class);
+
+        if (result.contains("success")) {
+            user.setUuid(result.substring(62, 86));
+            System.out.println(result);
+        } else if (result.contains("UserExisted")) {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseObject(201, "Failed", "Tài khoản đã tồn tại")
+            );
+        }
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 
-        return userService.createUser(user);
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject(200, "Success", userService.createUser(user))
+        );
     }
 
-//    @PostMapping("/register")
-//    ResponseEntity<ResponseObject> register(@RequestBody User user) {
-//        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-//        return userService.createUser(user) ? ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-//                new ResponseObject(200, "Success", "Tạo tài khoản thành công")
-//        ) : ResponseEntity.status(HttpStatus.OK).body(
-//                new ResponseObject(400, "Fail", "Tạo tài khoản thất bại")
+//    @PostMapping("/updatePassword")
+//    public ResponseEntity<ResponseObject> updatePassword(@RequestBody Password password) {
+//        final String uri = "https://cvnl.me/uuid/v1/user/create";
+//
+//        Account account = new Account();
+//        account.setAccount(user.getUsername());
+//        account.setHash(user.getPassword());
+//
+//        RestTemplate restTemplate = new RestTemplate();
+//        String result = restTemplate.postForObject(uri, account, String.class);
+//
+//        if (result.contains("success")) {
+//            user.setUuid(result.substring(62, 86));
+//            System.out.println(result);
+//        } else if (result.contains("UserExisted")) {
+//            return ResponseEntity.status(HttpStatus.OK).body(
+//                    new ResponseObject(201, "Failed", "Tài khoản đã tồn tại")
+//            );
+//        }
+//
+//        return ResponseEntity.status(HttpStatus.OK).body(
+//                new ResponseObject(200, "Success", userService.createUser(user))
 //        );
 //    }
 
@@ -76,20 +109,6 @@ public class AuthController {
         );
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<?> login(@RequestBody User user) {
-//        UserPrincipal userPrincipal = userService.findByUsername(user.getUsername());
-//        if (null == user || !new BCryptPasswordEncoder().matches(user.getPassword(), userPrincipal.getPassword())) {
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("tài khoản hoặc mật khẩu không chính xác");
-//        }
-//        Token token = new Token();
-//        token.setToken(jwtUtil.generateToken(userPrincipal));
-//        token.setTokenExpDate(jwtUtil.generateExpirationDate());
-//        token.setCreatedBy(userPrincipal.getUserId());
-//        tokenService.createToken(token);
-//        return ResponseEntity.ok(token.getToken());
-//    }
-
     @PostMapping("/updateProfileUserNotAvatar")
     ResponseEntity<ResponseObject> updateProfileUser(@RequestBody ProfileUser profileUser1) {
         ProfileUser profileUser = profileUserService.updateProfileUser(profileUser1);
@@ -100,8 +119,8 @@ public class AuthController {
     }
 
     @PostMapping("/updateProfileUser")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ProfileUser update(@RequestParam String height,
+//    @ResponseStatus(HttpStatus.CREATED)
+    public ProfileUser update(@RequestParam Long id, @RequestParam String height,
                        @RequestParam String weight, @RequestParam String workExperience, @RequestParam String education, @RequestParam String registerBook,
                        @RequestParam String cccd, @RequestParam String hobbies, @RequestParam String nativeLand, @RequestParam String genitive,
                        @RequestParam String cultureLevel, @RequestParam String wish, @RequestParam String career, @RequestParam String wage,
@@ -117,7 +136,11 @@ public class AuthController {
         try (OutputStream os = Files.newOutputStream(file)) {
             os.write(image.getBytes());
         }
+
         ProfileUser profileUser = new ProfileUser();
+        if (id != null) {
+            profileUser.setId(id);
+        }
         profileUser.setHeight(height);
         profileUser.setWeight(weight);
         profileUser.setWorkExperience(workExperience);
@@ -136,12 +159,19 @@ public class AuthController {
         profileUser.setCurrentJobId(currentJobId);
         profileUser.setUserId(userId);
         profileUser.setAvatar(imagePath.resolve(image.getOriginalFilename()).toString());
-        return profileUserService.updateProfileUser(profileUser);
+        return profileUserService.save(profileUser);
     }
 
-    @GetMapping("/hello")
-    @PreAuthorize("hasAnyAuthority('USER_READ')")
-    public ResponseEntity hello() {
-        return ResponseEntity.ok("hello");
+    @GetMapping("/getProfileUser/{id}")
+    public ResponseEntity<ProfileUser> getProfileUser(@PathVariable Long id) {
+        Optional<ProfileUser> profileUserOptional = profileUserService.findById(id);
+        return profileUserOptional.map(profileUser -> new ResponseEntity<>(profileUser, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+//    @GetMapping("/hello")
+//    @PreAuthorize("hasAnyAuthority('USER_READ')")
+//    public ResponseEntity hello() {
+//        return ResponseEntity.ok("hello");
+//    }
 }
