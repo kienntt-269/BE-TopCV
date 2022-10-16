@@ -43,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"kien1\",\r\n    \"password\": \"123456aA@\",\r\n    \"email\": \"kien1@gmail.com\",\r\n    \"uuid\": \"123\"\r\n}",
+							"raw": "{\r\n    \"username\": \"kientest701@gmail.com\",\r\n    \"password\": \"123456aA@\",\r\n    \"email\": \"kientest701@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -69,14 +69,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/user/getProfileUser/1",
+							"raw": "{{domain}}/user/getProfileUser/5",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"user",
 								"getProfileUser",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -92,22 +92,22 @@
 							"formdata": [
 								{
 									"key": "height",
-									"value": "test height",
+									"value": "18test",
 									"type": "text"
 								},
 								{
 									"key": "weight",
-									"value": "test weight",
+									"value": "18test",
 									"type": "text"
 								},
 								{
 									"key": "workExperience\n",
-									"value": "workExperience",
+									"value": "workExperience18",
 									"type": "text"
 								},
 								{
 									"key": "education",
-									"value": "education",
+									"value": "education18",
 									"type": "text"
 								},
 								{
@@ -133,7 +133,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/nguye/OneDrive/Desktop/test.jpg"
+									"src": "/C:/Users/nguye/OneDrive/Desktop/cho.jpg"
 								},
 								{
 									"key": "genitive",
@@ -157,27 +157,32 @@
 								},
 								{
 									"key": "wage",
-									"value": "wage",
+									"value": "wage2",
 									"type": "text"
 								},
 								{
 									"key": "area",
-									"value": "area",
+									"value": "area1",
 									"type": "text"
 								},
 								{
 									"key": "province",
-									"value": "province",
+									"value": "province12",
 									"type": "text"
 								},
 								{
 									"key": "userId",
-									"value": "4",
+									"value": "1",
 									"type": "text"
 								},
 								{
 									"key": "currentJobId",
 									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "18",
 									"type": "text"
 								}
 							]
@@ -233,14 +238,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/job/showJob/12",
+							"raw": "{{domain}}/job/showJob/14",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"job",
 								"showJob",
-								"12"
+								"14"
 							]
 						}
 					},
@@ -324,13 +329,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/candidates/getAllCandidates",
+							"raw": "{{domain}}/candidates/getCandidateByUser/1",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"candidates",
-								"getAllCandidates"
+								"getCandidateByUser",
+								"1"
 							]
 						}
 					},
@@ -343,7 +349,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"jobId\": 12,\r\n    \"profileUserId\": 1,\r\n    \"candidatesType\": 0\r\n}",
+							"raw": "{\r\n    \"jobId\": 12,\r\n    \"profileUserId\": 1,\r\n    \"candidatesType\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -475,7 +481,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"account\": \"999@gmail.com\",\r\n    \"hash\": \"123456aA@\"\r\n}",
+							"raw": "{\r\n    \"account\": \"680@gmail.com\",\r\n    \"hash\": \"123456aA@\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
