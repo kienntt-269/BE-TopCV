@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e78c4925-5004-4ebb-a3e5-9299a81614b7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../document/top_cv.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/../document/top_cv.postman_collection.json" afterDir="false" />
-    </list>
+    <list default="true" id="e78c4925-5004-4ebb-a3e5-9299a81614b7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,6 +133,7 @@
       <workItem from="1665327456198" duration="509000" />
       <workItem from="1665327981206" duration="55000" />
       <workItem from="1665328058009" duration="46000" />
+      <workItem from="1666014597302" duration="97000" />
     </task>
     <servers />
   </component>
