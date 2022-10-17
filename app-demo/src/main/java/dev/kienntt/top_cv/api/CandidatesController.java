@@ -22,6 +22,11 @@ public class CandidatesController {
 
     @PostMapping("/createCandidates")
     public ResponseEntity<Candidates> createCandidates(@RequestBody Candidates candidates) {
+        System.out.println(candidates);
+        System.out.println(candidates.getId());
+        if(candidates.getId() != null) {
+            candidates.setId(candidates.getId());
+        }
         return new ResponseEntity<>(candidatesService.save(candidates), HttpStatus.OK);
     }
 
