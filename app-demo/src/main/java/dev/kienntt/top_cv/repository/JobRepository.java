@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface JobRepository extends JpaRepository<Job, Long> {
     @Query("SELECT j FROM Job j WHERE " +
-            "j.name LIKE CONCAT('%',:jobName, '%')" +
+            ":jobName is null or j.name LIKE CONCAT('%',:jobName, '%')" +
                 "and (:experience is null or j.experience = :experience)" +
                     " and (:profileCompanyId is null or j.profileCompany.id = :profileCompanyId)" +
                         " and (:basicSalary is null or j.basicSalary = :basicSalary)" +
