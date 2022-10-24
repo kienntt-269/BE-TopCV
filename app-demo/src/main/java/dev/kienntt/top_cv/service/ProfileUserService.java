@@ -1,9 +1,8 @@
 package dev.kienntt.top_cv.service;
 
-import dev.kienntt.top_cv.entity.Job;
 import dev.kienntt.top_cv.entity.ProfileUser;
-import dev.kienntt.top_cv.entity.User;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ProfileUserService {
@@ -12,6 +11,8 @@ public interface ProfileUserService {
     ProfileUser updateProfileUser(ProfileUser profileUser);
 
     Optional<ProfileUser> findById(Long id);
+
+    List<ProfileUser> findByUserId(Long id);
 
     ProfileUser save(ProfileUser profileUser);
 }

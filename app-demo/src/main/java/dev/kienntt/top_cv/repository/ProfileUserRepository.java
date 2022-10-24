@@ -9,19 +9,16 @@ import org.springframework.data.jpa.repository.Query;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 public interface ProfileUserRepository extends JpaRepository<ProfileUser, Long> {
 
-    @Query("SELECT u FROM ProfileUser u WHERE " +
-            ":id is null or u.user.id = :id")
-    ProfileUser updateProfileUser(Long id);
+//    @Query("SELECT u FROM ProfileUser u WHERE " +
+//            ":id is null or u.user.id = :id")
+//    ProfileUser updateProfileUser(Long id);
 
-//    @Transactional
-//    @Modifying
-//    @Query(value = "UPDATE ProfileUser u set u.height =:height where u.weight = :weight",
-//            nativeQuery = true)
-//    ProfileUser updateProfileUserSQL(Long id, String height, String weight);
-//    void updateUser(@Param("emailVerificationStatus") boolean emailVerificationStatus, @Param("userId") String userId);
+    @Query("SELECT p FROM ProfileUser p WHERE p.user.id = :id")
+    List<ProfileUser> findByUserId(Long id);
 
     @Override
     <S extends ProfileUser> S saveAndFlush(S s);

@@ -20,6 +20,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -120,11 +121,11 @@ public class AuthController {
 
     @PostMapping("/updateProfileUser")
 //    @ResponseStatus(HttpStatus.CREATED)
-    public ProfileUser update(@RequestParam Long id, @RequestParam String height,
+    public ProfileUser update(@RequestParam(value = "id", required=false) Long id, @RequestParam Long userId, @RequestParam String height,
                        @RequestParam String weight, @RequestParam String workExperience, @RequestParam String education, @RequestParam String registerBook,
                        @RequestParam String cccd, @RequestParam String hobbies, @RequestParam String nativeLand, @RequestParam String genitive,
                        @RequestParam String cultureLevel, @RequestParam String wish, @RequestParam String career, @RequestParam String wage,
-                       @RequestParam String area, @RequestParam String province, @RequestParam Long currentJobId, @RequestParam Long userId,
+                       @RequestParam String area, @RequestParam String province, @RequestParam Long currentJobId,
                        @RequestParam MultipartFile image) throws IOException {
         Path staticPath = Paths.get("static");
         Path imagePath = Paths.get("images");
@@ -163,10 +164,11 @@ public class AuthController {
     }
 
     @GetMapping("/getProfileUser/{id}")
-    public ResponseEntity<ProfileUser> getProfileUser(@PathVariable Long id) {
-        Optional<ProfileUser> profileUserOptional = profileUserService.findById(id);
-        return profileUserOptional.map(profileUser -> new ResponseEntity<>(profileUser, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<ResponseObject> getProfileUser(@PathVariable Long id) {
+        List<ProfileUser> foundProfileUser = profileUserService.findByUserId(id);;
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseObject(200, "Success", foundProfileUser)
+        );
     }
 //    @GetMapping("/hello")
 //    @PreAuthorize("hasAnyAuthority('USER_READ')")

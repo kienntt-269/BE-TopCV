@@ -22,4 +22,8 @@ public interface JobRepository extends JpaRepository<Job, Long> {
     @Query("SELECT j FROM Job j WHERE " +
             ":jobName is null or j.name LIKE CONCAT('%',:jobName, '%')")
     List<Job> searchJobsSQLByName(String jobName);
+
+    @Query("SELECT j FROM Job j WHERE " +
+            ":careerId is null or j.careerId = :careerId")
+    List<Job> searchJobsSQLByCareer(Long careerId);
 }

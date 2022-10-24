@@ -8,4 +8,5 @@ import lombok.Setter;
 public class Account {
     private String account;
     private String hash;
+    private String uuid;
 }

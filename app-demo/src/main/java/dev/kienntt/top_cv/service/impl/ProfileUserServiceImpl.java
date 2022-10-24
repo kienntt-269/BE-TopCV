@@ -6,6 +6,7 @@ import dev.kienntt.top_cv.service.ProfileUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,5 +34,10 @@ public class ProfileUserServiceImpl implements ProfileUserService {
     @Override
     public Optional<ProfileUser> findById(Long id) {
         return profileUserRepository.findById(id);
+    }
+
+    @Override
+    public List<ProfileUser> findByUserId(Long id) {
+        return profileUserRepository.findByUserId(id);
     }
 }
